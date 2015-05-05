@@ -1,0 +1,512 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script type="text/javascript" src="JavaScript/Util.js"></script>
+
+    <script>
+        var tabberOptions = { 'onClick': function (ee) { TabClickedMain(ee); } };
+    </script>
+
+    <script type="text/javascript" src="JavaScript/tabber.js"></script>
+
+    <link rel="stylesheet" href="Style/example.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
+    <title>Online Kruti Dev Hindi to Unicode Hindi Converter</title>
+    <meta name="Keywords" content="hindi, hindi unicode, unicode converter, kruti dev, hindi typing, online unicode converter, english to hindi unicode,hindi unicode editor,unicode editor">
+    <meta name="Description" content="Online Unicode Hindi Conversion from Kruti Dev font, english typing or by uploading existing text files in Hindi to get Hindi Unicode.">
+    <meta name="google-site-verification" content="LkPAfuBy__ijgesVOz3WhbDIiX-wgitfhCqmrSZSP3A">
+    <meta name="author" content="Infowebservices">
+    <meta name="copyright" content="Infowebservices">
+
+    <meta name="robots" content="index,follow">
+    <meta http-equiv="Content-Language" content="en-us,hi">
+
+    <script>
+
+        var latestDate = "23Sep2012";
+
+        function TabClickedMain(arg) {
+
+            TabClicked(arg.index);
+        }
+
+        function TabClicked(tabNo) {
+
+            if (tabNo == 0) {
+                //   document.getElementById("ifrmTab1").parentNode.style.backgroundImage = 'url(images/loading.gif)';
+                //  document.getElementById("ifrmTab1").parentNode.style.backgroundRepeat = "no-repeat";
+                // document.getElementById("ifrmTab1").style.visibility = "hidden";
+                document.getElementById("ifrmTab1").src = "KrutiDevToUniCode.aspx";
+            }
+
+            if (tabNo == 1) {
+                document.getElementById("ifrmTab4").src = "UniCodeToKurtiDev.aspx";
+            }
+     
+            if (tabNo == 2) {
+                document.getElementById("ifrmTab2").src = "TypeHindi.aspx";
+            }
+
+            /*
+            if (tabNo == 2) {
+                document.getElementById("ifrmTab3").src = "TranslateHindiToEnglish.aspx";
+            }
+
+            if (tabNo == 3) {
+                document.getElementById("ifrmTab4").src = "TranslateEnglishToHindi.aspx";
+            }
+            */
+            if (tabNo == 3) {
+                document.getElementById("ifrmTab5").src = "UniCodeEditorEx.aspx";
+            }
+
+           
+           
+        }
+
+        function ResizeChild(height, width, ifrm) {
+            var frame = document.getElementById(ifrm);
+            frame.style.height = height + "px";
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-12622947-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+    <script>
+
+        function __InitModalPopUp(height, width, title) {
+
+            var divFrameParent = document.getElementById("divFrameParent");
+
+            var divOverlay = document.getElementById("divOverlay");
+
+            var iframe = document.getElementById("overlay_frame");
+
+            var tdOverLay = document.getElementById("tdOverLay");
+
+            var left = (window.screen.width - width) / 2;
+
+            var top = (window.screen.height - height) / 2;
+            top = top - 50;
+
+
+            document.getElementById("trOverLayBtn").style.display = "none";
+
+            document.getElementById("spanOverLayTitle").innerHTML = title;
+
+            divOverlay.style.top = "0px";
+
+            divOverlay.style.left = "0px";
+
+            divOverlay.style.height = "100%";
+
+            divOverlay.style.width = screen.width - 2 + "px";
+
+            divOverlay.style.display = "";
+
+            iframe.style.display = "none";
+
+            divFrameParent.style.display = "";
+
+            divFrameParent.style.top = top + "px";
+
+            divFrameParent.style.left = left + "px";
+
+            divFrameParent.style.height = height + "px";
+
+            divFrameParent.style.width = width + "px";
+
+            iframe.style.height = "0px";
+
+            iframe.style.width = "0px";
+
+            document.getElementById("btnOverLay1").style.width = "";
+
+            document.getElementById("btnOverLay2").style.width = "";
+
+        }
+
+
+
+        function ShowModalPopUpURL(url, height, width, title) {
+
+            __InitModalPopUp(height, width, title);
+
+            var divFrameParent = document.getElementById("divFrameParent");
+
+            var divOverlay = document.getElementById("divOverlay");
+
+            var iframe = document.getElementById("overlay_frame");
+
+            var tdOverLay = document.getElementById("tdOverLay");
+
+
+
+            tdOverLay.style.height = divFrameParent.offsetHeight - 20 + "px";
+
+            tdOverLay.style.width = divFrameParent.offsetWidth - 2 + "px";
+
+            document.getElementById("spanLoading").style.display = "";
+
+            document.getElementById("divMessage").style.display = "none";
+
+            document.getElementById("overlay_frame").style.display = "";
+
+            document.getElementById("spanLoading").style.display = "none";
+
+            iframe.src = url;
+
+            iframe.style.height = divFrameParent.offsetHeight - 20 + "px";
+
+            iframe.style.width = divFrameParent.offsetWidth - 2 + "px";
+
+            //   setTimeout("LoadUrl('" + url + "')", 1000);
+
+        }
+
+
+
+        function ShowModalPopUpMessage(message, height, width, title, type) {
+
+            __InitModalPopUp(height, width, title, type);
+
+            document.getElementById("trOverLayBtn").style.display = "";
+
+            var tdOverLay = document.getElementById("tdOverLay");
+
+            tdOverLay.style.height = "50px";
+
+            tdOverLay.style.width = "0px";
+
+            document.getElementById("spanMessage").innerHTML = message;
+
+            document.getElementById("divMessage").style.display = "";
+
+            document.getElementById("spanMessage").style.background = "url(" + type + ".JPG) no-repeat left center";
+
+            document.getElementById("spanLoading").style.display = "none";
+
+            document.getElementById("btnOverLay1").value = "Ok";
+
+            document.getElementById("btnOverLay1").onclick = HideModalPopUp;
+
+            document.getElementById("btnOverLay2").style.display = "none";
+
+        }
+
+
+
+        function ShowModalPopUpWithButtons(message, height, width, title, type, button1Text, button1CallBack, button2Text, button2CallBack) {
+
+            ShowModalPopUpMessage(message, height, width, title, type);
+
+            var tdOverLay = document.getElementById("tdOverLay");
+
+            var maxWidth = 100;
+
+            document.getElementById("spanMessage").innerHTML = message;
+
+            document.getElementById("divMessage").style.display = "";
+
+            document.getElementById("spanLoading").style.display = "none";
+
+
+
+            if (button1Text != "") {
+
+                document.getElementById("btnOverLay1").value = button1Text;
+
+                if (button1CallBack != "") {
+
+                    //document.getElementById("btnOverLay1").addEventListener('click', function (e) { eval(callingWindow.button1CallBack) }, true);
+
+                    document.getElementById("btnOverLay1").onclick = button1CallBack;
+
+                }
+
+            }
+
+            if (button2Text != "") {
+
+                document.getElementById("btnOverLay2").value = button2Text;
+
+                document.getElementById("btnOverLay2").style.display = "";
+
+                if (button2CallBack != null && button2CallBack != "") {
+
+                    //document.getElementById("btnOverLay1").addEventListener('click', function (e) { eval(callingWindow.button1CallBack) }, true);
+
+                    document.getElementById("btnOverLay2").onclick = button2CallBack;
+
+                }
+
+            }
+
+            if (button1Text != "" && button2Text != "") {
+
+                if (document.getElementById("btnOverLay1").offsetWidth > document.getElementById("btnOverLay2").offsetWidth) {
+
+                    document.getElementById("btnOverLay2").style.width = document.getElementById("btnOverLay1").offsetWidth + "px";
+
+                }
+
+                if (document.getElementById("btnOverLay2").offsetWidth > document.getElementById("btnOverLay1").offsetWidth) {
+
+                    document.getElementById("btnOverLay1").style.width = document.getElementById("btnOverLay2").offsetWidth + "px";
+
+                }
+
+            }
+
+        }
+
+
+
+        function LoadUrl(url) {
+
+            if (document.getElementById("overlay_frame").readyState == "complete") {
+                document.getElementById("overlay_frame").style.display = "";
+                document.getElementById("spanLoading").style.display = "none";
+            }
+
+            else {
+                setTimeout("LoadUrl('" + url + "')", 1000);
+            }
+        }
+
+        function HideModalPopUp() {
+            var divFrameParent = document.getElementById("divFrameParent");
+            var divOverlay = document.getElementById("divOverlay");
+            divOverlay.style.display = "none";
+            divFrameParent.style.display = "none";
+        }
+        </script>
+        
+
+</head>
+<body>  
+<script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</script>
+
+  <form id="form1" runat="server">
+    <table width="100%" border="0">
+        <tbody><tr>
+            <td width="100%" align="center">
+                <span style="font-size: 24pt; color: Gray; display: "><a href="http://www.infowebservices.in/hindi/" target="_self">
+                    <img src="unicode-hindi-converter.jpg" alt="Online Unicode Hindi Converter" width="202" align="left" border="0" height="79"></a>ॐ</span>
+            </td>
+
+            <td style="vertical-align:top;padding-top:12px;">
+                <a href="http://blog.infowebservices.in/2012/09/online-unicode-hindi-conversion-tool.html" target="_blank" title="Help" style="color: White"> <img src="images/help2.png" style="border:0px solid"></a>&nbsp;
+            </td>
+            <td style="vertical-align:top;">
+                <a href="http://www.infowebservices.in/" target="_blank" "="" title="Home" style="color: White">
+                   <img src="images/home.png" alt="Home" style="border:0px solid"> </a>
+            </td>
+        </tr>
+
+    </tbody></table>
+     <div style="padding-top:5px;">
+   
+      <a href="https://twitter.com/#!/Infowebservices" target="_blank">  <img style="border:0px" src="images/twitter_32.png"></a>
+      <a href="http://www.facebook.com/pages/Infoweb-Services/201327526564221" target="_blank">  <img style="border:0px" src="images/facebook_32.png"></a>
+        <a href="http://in.linkedin.com/in/infowebservices" target="_blank"><img style="border:0px" src="images/linkedin_32.png"></a>
+        <a href="https://plus.google.com/106498178159190441556" target="_blank"><img style="border:0px" src="images/googleplus_32.png"></a>
+       
+    </div>
+
+    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FInfoweb-Services%2F201327526564221&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=true&amp;font&amp;colorscheme=light&amp;action=like&amp;height=80&layout=box_count" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe>
+    <div align="Center">
+        <h1 style="font-family: Verdana; font-size: 14px">
+            Online Unicode Hindi Conversion</h1>
+    </div>
+    <div class="tabber" style="margin-left: -8px">
+        <div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre> Kruti Dev to UniCode</pre>
+
+            </h2>
+            <div>
+                <iframe id="ifrmTab1" name="ifrmTab1" src="" width="100%" frameborder="0"></iframe>
+            </div>
+        </div>
+          <div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre>UniCode To Kruti Dev</pre>
+            </h2>
+            <div id="div2">
+                <div>
+
+                    <iframe id="ifrmTab4" name="ifrmTab4" src="" width="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre>Type English to Hindi Unicode</pre>
+
+            </h2>
+            <div id="divGoogle">
+                <div>
+                    <iframe id="ifrmTab2" name="ifrmTab2" src="" width="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="tabbertab" style="background: #3e3e3e">
+
+            <h2>
+                <pre> Hindi to English Translation</pre>
+            </h2>
+            <div id="div1">
+                <div>
+                    <iframe id="ifrmTab3" name="ifrmTab3" src="" width="100%" frameborder="0"></iframe>
+                </div>
+
+            </div>
+        </div>
+        <div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre>English to Hindi Translation</pre>
+            </h2>
+            <div id="div2">
+                <div>
+
+                    <iframe id="ifrmTab4" name="ifrmTab4" src="" width="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+        -->
+       
+        
+         <div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre>Hindi UniCode Editor</pre>
+            </h2>
+
+            <div id="div3">
+                <div>
+                    <iframe id="ifrmTab5" name="ifrmTab5" src="" width="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <script>
+
+
+        function has_scrollbar(elem_id) {
+            elem = document.getElementById(elem_id);
+            if (elem.clientHeight < elem.scrollHeight)
+                alert("The element has a vertical scrollbar!");
+            else
+                alert("The element doesn't have a vertical scrollbar.");
+        }
+
+
+
+
+
+        function PanelExpand(panel, animate, url, iframe) {
+            document.getElementById(iframe).parentNode.style.backgroundImage = 'url(/Theme/<%=Request["server_name"]%>_Theme/Images/loading.gif)';
+            setTimeout("HideBusyMark('" + iframe + "')", 60000);
+
+            if (document.getElementById(iframe))
+                document.getElementById(iframe).src = url;
+
+            if (oldPanel != null)
+                oldPanel.collapse();
+
+            oldPanel = panel;
+        }
+
+        function HideBusyMark(iframe) {
+            if (document.getElementById(iframe) != null)
+                document.getElementById(iframe).style.visibility = 'visible';
+        }
+
+        CreateMessageWindow("No Font");
+
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+        }
+
+        function InitTab() {
+            var indx = getQueryVariable("indx");
+            if (indx != null) setTimeout("ClickTab(" + indx + ")", 500);
+            else setTimeout("ClickTab(0)", 500);
+        }
+
+        function ClickTab(indx) {
+            document.getElementById("TabID" + indx).onclick();
+        }
+       
+    </script>
+
+    <style type="text/css">
+@import url(http://www.google.com/cse/api/branding.css);
+</style>
+<div style=" border:0px solid #FFFFFF; color:#000000;padding-top:10px;" align="center">
+ <div class="cse-branding-form">
+   <form action="http://www.google.com" id="cse-search-box" target="_blank">
+     <div>
+     <table border="0">
+     <tbody><tr><td>   <input name="cx" value="partner-pub-2283202119549117:1048680694" type="hidden">
+       <input name="ie" value="UTF-8" type="hidden">
+       <input name="q" size="55" type="text">
+       <button title="Click to Search" class="btn UniCodeFont" id="Editor1_btnConvertToUnicode" style="width: 100px; vertical-align:middle;" type="submit">
+      <div style="background:url(images/search.png) no-repeat;height:25px;font-size: 15px;padding-left:30px; padding-top:4px; ">
+     खोजे     
+      </div>
+      
+       </button>
+       
+</td>
+</tr>
+     </tbody></table>
+         </div>
+   </form>
+   <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+   <script type="text/javascript">       google.load("elements", "1", { packages: "transliteration" });</script>
+   <script type="text/javascript" src="http://www.google.com/cse/t13n?form=cse-search-box&amp;t13n_langs=en%2Chi%2Csa"></script>
+ </div>
+ <div class="cse-branding-logo" style="width:200px; background-color:black">
+   <img src="http://www.google.com/images/poweredby_transparent/poweredby_000000.gif" alt="Google">
+ </div>
+ <div class="cse-branding-text">
+   Custom Search
+ </div>
+</div>
+
+</body>
+</html>

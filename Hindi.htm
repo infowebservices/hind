@@ -1,0 +1,91 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<script>
+ var tabberOptions = {'onClick':function(ee){test(ee);}};
+ 
+ function test(arg)
+ {
+ if(arg.index ==1)
+ {
+  document.getElementById("ifrmTab2").src="EnglishToHindi.aspx";
+ }
+ 
+ if(arg.index ==2)
+ {
+  document.getElementById("ifrmTab3").src="HindiToEnglish.aspx";
+ }
+ 
+ 
+ }
+ 
+</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script type="text/javascript" src="JavaScript/tabber.js"></script>
+    <link rel="stylesheet" href="Style/example.css" type="text/css" media="screen">
+   <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen">
+
+    <title>कुरूति देव से यूनिकोडे </title>
+   <script>
+    function ResizeChild(height,width,ifrm)
+    {
+        var frame = document.getElementById(ifrm);
+        frame.style.height = height + "px";
+    }
+    
+   
+    
+    </script>
+
+   
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table width="100%">
+        <tr>
+            <td align="center" width="100%">
+            
+                <span style="font-size: 24pt; color: Gray; display: ">ॐ</span>
+       
+            </td>
+            <td>
+                <a href="" class="UniCodeFont" style="color: White">हेल्प</a>&nbsp;
+            </td>
+            <td>
+                <a href="" class="UniCodeFont" style="color: White">होम</a>
+            </td>
+        </tr>
+    </table>
+    <div class="tabber" style="margin-left: -8px">
+   
+        <div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre>   कुरूति देव  </pre>
+            </h2>
+            <div><iframe id="ifrmTab1"  frameborder="0" src="Hindi.aspx" width="100%" ></iframe> </div>
+        </div>
+        <div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre>  इंग्लिश </pre>
+            </h2>
+            <div id="divGoogle">
+               <div><iframe id="ifrmTab2"  frameborder="0" src="Blank.htm"  width="100%" ></iframe> </div>
+            </div>
+        </div>
+           <!--div class="tabbertab" style="background: #3e3e3e">
+            <h2>
+                <pre>  Translate </pre>
+            </h2>
+            <div id="div1">
+               <div><iframe id="ifrmTab3"  frameborder="0" src="Blank.htm"  width="100%" ></iframe> </div>
+            </div>
+        </div-->
+    </div>
+    </form>
+
+  
+
+</body>
+</html>
